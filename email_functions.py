@@ -63,19 +63,6 @@ def CreateMessage(sender, to, subject, msgHtml, msgPlain):
     return body
 
 def createMessageWithAttachment(sender, to, subject, msgHtml, msgPlain, attachmentFile):
-    """Create a message for an email.
-
-    Args:
-      sender: Email address of the sender.
-      to: Email address of the receiver.
-      subject: The subject of the email message.
-      msgHtml: Html message to be sent
-      msgPlain: Alternative plain text message for older email clients          
-      attachmentFile: The path to the file to be attached.
-
-    Returns:
-      An object containing a base64url encoded email object.
-    """
     msg = MIMEMultipart('mixed')
     msg['Subject'] = subject
     msg['From'] = sender

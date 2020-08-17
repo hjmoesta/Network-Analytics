@@ -12,7 +12,8 @@ def main():
     while value < 3:
         download, upload = wifi_statistics.speed_test()
         print(download,upload,value)
-        data_export.export_data(download, upload, db, table)
+        data_export.export_data(download, upload, table, db)
         value += 1
     result = SendMessage(email_details.sender, email_details.to, email_details.subject, email_details.msgHtml, email_details.msgPlain)
 
+main()
