@@ -22,3 +22,11 @@ def speed_test():
     upload_speed = upload.get_attribute('innerHTML')
     driver.quit()
     return(float(upload_speed), float(download_speed))
+
+def speedtest_cli():
+    down = os.popen('speedtest --no-upload')
+    download = (down.read().split('Download: ')[1].split('Mbit/s')[0])
+    up = os.popen('speedtest --no-download')
+    upload = (up.read().split('Upload: ')[1].split('Mbit/s')[0])
+
+    return(float(upload), float(download))

@@ -8,5 +8,3 @@ def export_data(download, upload,table,db):
    cur.execute(string,data)
    conn.commit()
    conn.close()
-
-export_data(1,1,'wifi_speed','wifi_stats.db')

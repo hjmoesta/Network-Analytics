@@ -9,11 +9,14 @@ def main():
     db = 'wifi_stats.db'
     table = 'wifi_speed'
 
-    while value < 3:
-        download, upload = wifi_statistics.speed_test()
+    while value < 1:
+        upload, download = wifi_statistics.speedtest_cli()
         print(download,upload,value)
+        if download <= 100.0:
+            SendMessage(email_details.sender, email_details.to, email_details.subject, email_details.msgHtml_error + str(download), email_details.msgPlain)
         data_export.export_data(download, upload, table, db)
         value += 1
-    result = SendMessage(email_details.sender, email_details.to, email_details.subject, email_details.msgHtml, email_details.msgPlain)
+
+    
 
 main()
