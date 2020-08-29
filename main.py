@@ -17,8 +17,9 @@ def main():
         SendMessage(email_details.sender, email_details.to, email_details.subject, email_details.msgHtml_error + str(download), email_details.msgPlain)
     data_export.export_data(download, upload, table, db)
     current = datetime.datetime.now()
-    if current.hour == 12 and current.minute == 0:
+    if current.hour == 0 and current.minute <= 11:
         graph = data_export.todays_data(table,db)
+        SendMessage((email_details.sender, email_details.to, email_details.subject, email_details.msgHtml_error, email_details.msgPlain, attachmentFile=graph))
 
     time.sleep(wait_time)
 

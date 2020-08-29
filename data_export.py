@@ -31,8 +31,7 @@ def todays_data(table,db):
 def graph_data(upload,download,time):
    plt.plot(time,download,linewidth=2.0)
    plt.plot(time,upload,linewidth=2.0)
-   plt.show()
-   #plt.savefig("todays_newtworkk_graph.pdf")
+   plt.savefig("todays_newtwork_graph.png")
 
 def julian_to_seconds(jul):
    date=[]
